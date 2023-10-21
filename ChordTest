@@ -1,0 +1,19 @@
+from music21 import stream, chord
+
+# Define the chord symbols and their durations
+chord_symbols = ["Em7", "Gmaj7", "Am7", "D9", "G"]
+durations = [4, 4, 4, 4, 4]  # In quarter notes (change as needed)
+
+# Create a stream to store the chords
+chord_stream = stream.Stream()
+
+# Convert chord symbols to chord objects and add to the stream
+for symbol, duration in zip(chord_symbols, durations):
+    c = chord.Chord(symbol)
+    c.duration.quarterLength = duration
+    chord_stream.append(c)
+
+# Create a MIDI file
+midi_file = chord_stream.write('midi', 'output.mid')
+
+print("MIDI file 'output.mid' has been created.")
