@@ -1,0 +1,36 @@
+\header {
+  title = "Simple Song"
+  composer = "Your Name"
+}
+
+\chords {
+  % Define chord symbols
+  c4 | g4 | am | f4 | c4 | g4 | am | f4 |
+}
+
+\score {
+  <<
+    \new ChordNames {
+      \chords
+    }
+    \new Lyrics {
+      \lyricmode {
+        Verse 1: | This is a simple song, | with chords and lyrics. |
+      }
+      \lyricmode {
+        Chorus: | Sing along and have some fun, | making music, it's so terrific! |
+      }
+    }
+    \new Staff {
+      \relative c' {
+        \key c \major
+        \time 4/4
+        % Define the melody notes here
+        c4 e4 g4 a4 | f4 e4 d4 c4 | g4 g4 e4 d4 |
+        c4 e4 g4 a4 | f4 e4 d4 c4 | g4 g4 e4 d4 |
+      }
+    }
+  >>
+  \layout { }
+  \midi { }
+}
