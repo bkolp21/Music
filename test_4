@@ -1,0 +1,21 @@
+from music21 import converter
+
+# Load a sample MusicXML file
+file_path = 'path_to_sample_musicxml_file.xml'  # Replace with the actual file path
+
+score = converter.parse(file_path)
+
+# Extract key signature and time signature
+key_signature = score.flat.getElementsByClass('KeySignature')
+time_signature = score.flat.getElementsByClass('TimeSignature')
+
+# Print the key signature and time signature
+if key_signature:
+    print(f"Key Signature: {key_signature[0].sharps} sharps")
+else:
+    print("No key signature found in the score.")
+
+if time_signature:
+    print(f"Time Signature: {time_signature[0].ratioString}")
+else:
+    print("No time signature found in the score.")
