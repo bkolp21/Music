@@ -1,0 +1,78 @@
+from music21 import *
+
+# Create a Music21 stream for the song
+song = stream.Stream()
+
+# Add a time signature (4/4) and key signature (C Major)
+song.append(meter.TimeSignature('4/4'))
+song.append(key.Key('C'))
+
+# Define the lyrics for the song
+lyrics = [
+    'Water, clear and pure, so free,',
+    'Flowing through each living tree.',
+    'Rivers winding, endless streams,',
+    "Water's in our every dream.",
+    '',
+    'Oh, water, you\'re life\'s own source,',
+    'Quenching every living force.',
+    "In oceans deep or mountain streams,",
+    "You're the substance of our dreams.",
+    '',
+    'Raindrops falling from the sky,',
+    'Washing tears, we wonder why.',
+    'Life begins in your embrace,',
+    "Water, you're a precious grace.",
+    '',
+    'Oh, water, you\'re life\'s own source,',
+    'Quenching every living force.',
+    "In oceans deep or mountain streams,",
+    "You're the substance of our dreams.",
+    '',
+    'Mighty waves crash on the shore,',
+    'Tales of sailors in days of yore.',
+    'In stillness or in tempest\'s roar,',
+    "Water, you're worth so much more."
+]
+
+# Define the chords for the song
+chords = [
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    '',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    '',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    '',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    'C       G        Am    F',
+    '',
+    'Am       G        F',
+    'Am       G        F',
+    'Am       G        F',
+    'C       G        Am    F',
+]
+
+# Add lyrics and chords to the song
+for lyric_line, chord_line in zip(lyrics, chords):
+    if lyric_line:
+        note_obj = note.Note()
+        note_obj.lyric = lyric_line
+        song.append(note_obj)
+
+    if chord_line:
+        chord_obj = harmony.ChordSymbol(chord_line)
+        song.append(chord_obj)
+
+# Show the song
+song.show()
