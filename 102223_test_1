@@ -1,0 +1,25 @@
+import unittest
+from music21 import note, stream, converter
+
+# Define a function that generates a music21 output
+def generate_music21_output():
+    # Create a simple music21 stream with a single note
+    s = stream.Stream()
+    n = note.Note("C4")
+    s.append(n)
+    return s
+
+class TestMusic21Output(unittest.TestCase):
+    def test_generated_output(self):
+        # Generate the music21 output
+        output = generate_music21_output()
+        
+        # Define the expected output
+        expected_output = stream.Stream()
+        expected_output.append(note.Note("C4"))
+        
+        # Compare the generated output with the expected output
+        self.assertEqual(output, expected_output)
+
+if __name__ == '__main__':
+    unittest.main()
